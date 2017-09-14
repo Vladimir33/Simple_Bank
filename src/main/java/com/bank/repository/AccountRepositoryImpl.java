@@ -1,9 +1,11 @@
 package com.bank.repository;
 
 import com.bank.model.Account;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class AccountRepositoryImpl extends AbstractRepository<Account> implements AccountRepository {
     @Override
     public Account get(int id) {
@@ -11,8 +13,8 @@ public class AccountRepositoryImpl extends AbstractRepository<Account> implement
     }
 
     @Override
-    public List<Account> getAll() {
-        return em.createNamedQuery(Account.ACC_ALL_SORTED, Account.class).getResultList();
+    public List<Account> getAll(int id) {
+        return em.createNamedQuery(Account.ACC_ALL_SORTED, Account.class).setParameter("id", id).getResultList();
     }
 
     @Override

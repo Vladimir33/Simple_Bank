@@ -1,10 +1,10 @@
-package com.bank.repository;
+package com.bank.service;
 
 import com.bank.model.Account;
 
 import java.util.List;
 
-public interface AccountRepository {
+public interface AccountService {
 
     Account get(int id);
 

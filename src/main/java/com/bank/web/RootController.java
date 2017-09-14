@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RootController {
 
     @Autowired
-    ClientService service;
+    private ClientService service;
 
     @GetMapping("/")
     public String root() {

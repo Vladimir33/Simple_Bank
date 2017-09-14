@@ -27,7 +27,7 @@
         <c:forEach items="${clients}" var="client">
             <jsp:useBean id="client" scope="page" type="com.bank.model.Client"/>
             <tr>
-                <td><a href="accounts">${client.name}</a></td>
+                <td><a href="accounts?id=${client.id}">${client.name}</a></td>
                 <td>${client.age}</td>
                 <td>${client.address.city}</td>
                 <td>${client.address.street}</td>
@@ -43,11 +43,11 @@
 </section>
 
 <section>
-    <c:set var="create">Create</c:set>
-    <c:set var="edit">Edit</c:set>
+    <%--<c:set var="create">Create</c:set>--%>
+    <%--<c:set var="edit">Edit</c:set>--%>
 
     <%--<c:set var="client" value="${editedClient}"/>--%>
-    <h2>${client.id == null ? create : edit}</h2>
+    <%--<h2>${client.id == null ? create : edit}</h2>--%>
     <hr>
     <form method="post" action="clients">
 
