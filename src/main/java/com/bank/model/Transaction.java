@@ -1,11 +1,9 @@
 package com.bank.model;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 @Table
 public class Transaction extends BaseEntity {
 
@@ -19,6 +17,28 @@ public class Transaction extends BaseEntity {
     @Column(name = "tx_time", columnDefinition = "timestamp default now()")
   //  private Date date = new Date();
     private LocalDateTime dateTime = LocalDateTime.now();
+
+    @OneToOne
+    private Account accountTo;
+
+    @OneToOne
+    private Account accountFrom;
+
+    public Account getAccountTo() {
+        return accountTo;
+    }
+
+    public void setAccountTo(Account accountTo) {
+        this.accountTo = accountTo;
+    }
+
+    public Account getAccountFrom() {
+        return accountFrom;
+    }
+
+    public void setAccountFrom(Account accountFrom) {
+        this.accountFrom = accountFrom;
+    }
 
     public double getAmount() {
         return amount;

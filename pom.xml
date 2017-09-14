@@ -22,7 +22,7 @@
   </properties>
 
   <build>
-    <finalName>resource-mapping</finalName>
+    <finalName>Simple Bank</finalName>
     <defaultGoal>package</defaultGoal>
     <plugins>
       <plugin>

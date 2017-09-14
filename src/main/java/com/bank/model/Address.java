@@ -1,12 +1,14 @@
 package com.bank.model;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table
-public class Address extends BaseEntity {
+//@Entity
+//@Table
+@Embeddable
+public class Address {
+
+    @Column(nullable = false)
+    private String city;
 
     @Column(nullable = false)
     private String street;
@@ -16,10 +18,29 @@ public class Address extends BaseEntity {
     private AddressType type;
 
     @Column(nullable = false)
-    private String city;
-
-    @Column(nullable = false)
     private String zipCode;
+
+//    @OneToOne
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Client client;
+
+    public Address() {
+    }
+
+    public Address(String city, String street, AddressType type, String zipCode) {
+        this.city = city;
+        this.street = street;
+        this.type = type;
+        this.zipCode = zipCode;
+    }
+
+//    public Client getClient() {
+//        return client;
+//    }
+//
+//    public void setClient(Client client) {
+//        this.client = client;
+//    }
 
     public String getStreet() {
         return street;

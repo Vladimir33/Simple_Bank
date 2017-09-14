@@ -1,12 +1,19 @@
 package com.bank.model;
 
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
+import static com.bank.model.Client.ALL_SORTED;
+import static com.bank.model.Client.DELETE;
+
+@NamedQueries({@NamedQuery(name = ALL_SORTED, query = "SELECT c FROM Client c ORDER BY c.name"),
+        @NamedQuery(name = DELETE, query = "DELETE FROM Client c where c.id=:id")})
+@Entity
 @Table
 public class Client extends BaseEntity {
+
+    public static final String ALL_SORTED = "Client.getAllSorted";
+    public static final String DELETE = "Client.delete";
 
     @Column(nullable = false)
     private String name;
@@ -14,11 +21,21 @@ public class Client extends BaseEntity {
     @Column(nullable = false)
     private int age;
 
-    @Column(nullable = false)
+    @Embedded
     private Address address;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client")
     private List<Account> accounts;
+
+    public Client() {
+    }
+
+    public Client(Integer id, String name, int age, Address address) {
+        super(id);
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
 
     public String getName() {
         return name;
