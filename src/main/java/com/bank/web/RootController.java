@@ -26,9 +26,6 @@ public class RootController {
     @GetMapping("/clients")
     public String root(Model model) {
         model.addAttribute("clients", service.getAll());
-//        if (id != null) {
-//            model.addAttribute("edited", service.get(Integer.valueOf(id)));
-//        }
         return "clients";
     }
 

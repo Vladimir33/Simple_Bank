@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class AbstractRepository<T extends BaseEntity> {
+public abstract class AbstractRepository<T extends BaseEntity> {
 
     @PersistenceContext
     @Autowired

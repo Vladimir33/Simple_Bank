@@ -13,4 +13,8 @@
 <a href="/">
     <input type="button" value="Home"/>
 </a>
+
+<a href="transactions">
+    <input type="button" value="Transactions"/>
+</a>
 </body>

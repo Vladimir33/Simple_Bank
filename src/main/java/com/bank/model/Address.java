@@ -2,8 +2,6 @@ package com.bank.model;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table
 @Embeddable
 public class Address {
 
@@ -20,10 +18,6 @@ public class Address {
     @Column(nullable = false)
     private String zipCode;
 
-//    @OneToOne
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    private Client client;
-
     public Address() {
     }
 
@@ -33,14 +27,6 @@ public class Address {
         this.type = type;
         this.zipCode = zipCode;
     }
-
-//    public Client getClient() {
-//        return client;
-//    }
-//
-//    public void setClient(Client client) {
-//        this.client = client;
-//    }
 
     public String getStreet() {
         return street;

@@ -1,13 +1,12 @@
+<%@ page import="java.util.stream.Collectors" %>
+<%@ page import="com.bank.model.Account" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 
-
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
 <body>
-
-
 <section>
     <h2>Clients</h2>
 
@@ -21,7 +20,6 @@
             <th>Address Type</th>
             <th>Zip Code</th>
             <th></th>
-            <th></th>
         </tr>
         </thead>
         <c:forEach items="${clients}" var="client">
@@ -33,21 +31,13 @@
                 <td>${client.address.street}</td>
                 <td>${client.address.type}</td>
                 <td>${client.address.zipCode}</td>
-                <td><a href="clients?id=${client.id}">Update</a></td>
                 <td><a href="delete?id=${client.id}">Delete</a></td>
-
-                    <%--<td><fmt:formatDate value="${user.registered}" pattern="dd-MMMM-yyyy"/></td>--%>
             </tr>
         </c:forEach>
     </table>
 </section>
 
 <section>
-    <%--<c:set var="create">Create</c:set>--%>
-    <%--<c:set var="edit">Edit</c:set>--%>
-
-    <%--<c:set var="client" value="${editedClient}"/>--%>
-    <%--<h2>${client.id == null ? create : edit}</h2>--%>
     <hr>
     <form method="post" action="clients">
 
@@ -78,7 +68,6 @@
                 <option value="House">House</option>
                 <option value="Apartment">Apartment</option>
             </select>
-            <%--<dd><input type="text" value="${client.address.type}" size=40 name="type" placeholder="HOUSE"></dd>--%>
         </dl>
 
         <button type="submit">Save</button>

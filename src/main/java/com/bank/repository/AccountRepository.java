@@ -13,4 +13,6 @@ public interface AccountRepository {
     Account save(Account account);
 
     boolean delete(int id);
+
+    void updateBalance(int accountFrom, int accountTo, double amount, String description);
 }

@@ -4,7 +4,6 @@ import com.bank.model.Account;
 import com.bank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,14 +24,17 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    @Transactional
     public Account save(Account account) {
         return repository.save(account);
     }
 
     @Override
-    @Transactional
     public boolean delete(int id) {
         return repository.delete(id);
+    }
+
+    @Override
+    public void updateBalance(int accountFrom, int accountTo, double amount, String description){
+        repository.updateBalance(accountFrom, accountTo, amount, description);
     }
 }
